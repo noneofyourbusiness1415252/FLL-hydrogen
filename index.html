@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang=en>
+<meta charset=utf-8>
+<meta name=author content="Umar Sharief">
+<meta name=description content="FLL SUPERPOWERED project: How and why we make hydrogen fuel cells the viable daily energy source">
+<meta name=theme-color content=#D33682>
+<meta name=keywords content=project,fll,energy,hydrogen,power,renewable>
+<meta name=viewport content="width=device-width">
+<link rel=icon href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' style='background-color:%236C71C4'><text font-size='xxx-large' font-family='fantasy' text-anchor='middle' fill='%23D33682' dominant-baseline='middle' y='50%' x='50%'>H</text></svg>">
+<title>Hydrogen fuel cells: why, what there's left to do</title>
+<style>
+@keyframes petrolslide {
+  from {
+    transform: translate(100%)
+  }
+  to {
+    text-shadow: 1vw 0 1em #000;
+    transform: translate(-100%);
+    height: 0
+  }
+}
+@keyframes hslide {
+  from {
+    transform: translate(100%)
+  }
+  to {
+    transform: translate(-100%)
+  }
+}
+@keyframes appear {
+  to {
+    opacity: 1
+  }
+}
+@keyframes smog {
+  to {
+    background-color: #000E
+  }
+}
+@keyframes state {
+  to {
+    opacity: 100%
+  }
+}
+@keyframes header {
+  to {
+    text-shadow: 0 0 1em
+  }
+}
+@keyframes shrink {
+  to {
+    font-size: 1em
+  }
+}
+@keyframes enlarge {
+  to {
+    font-size: 3em;
+    box-shadow: inset 0 0
+  }
+}
+@keyframes why {
+  to {
+    font-size: 1em;
+    transform: rotate(360deg)
+  }
+}
+@keyframes team {
+  17%, 50%, 83% {
+    content: "👏💡👏"
+  }
+  18%, 51%, 84% {
+    content: "👨‍💻👨‍💻👨‍💻"
+  }
+  34%, 68% {
+    content: "🤔🤔🤔"
+  }
+  to {
+    content: " 🏆 "
+  }
+}
+@keyframes swish {
+  to {
+    transform: rotate(90deg)
+  }
+}
+@keyframes across-pic {
+  to {
+    transform: translate(-1.5em)
+  }
+}
+@keyframes resetX {
+  to {
+    transform: translate(0)
+  }
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1
+  }
+}
+@keyframes coder {
+  1.4%, 22.2%, 43.1% {
+    content: "👨‍💻"
+  }
+  20.8%, 41.7% {
+    content: "🍚"
+  }
+  62.5% {
+    content: "🛌"
+  }
+}
+@keyframes clean {
+  to {
+    text-shadow: none;
+    color: #268BD2
+  }
+}
+@keyframes shrinkAway {
+  to {
+    font-size: 0;
+  }
+}
+@keyframes renew {
+  to {
+    text-shadow: 0 0 2em;
+    opacity: .1
+  }
+}
+@keyframes wobble {
+  25% {
+    transform: translate(.1vh, .1vh) rotate(1deg)
+  }
+  50% {
+    transform: translate(-.1vh, -.1vh) rotate(1deg)
+  }
+  75% {
+    transform: translate(.1vh, .1vh) rotate(-1deg)
+  }
+}
+@keyframes shadow {
+  to {
+    text-shadow: 1vw 0 1em
+  }
+}
+@property --num {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false
+}
+@keyframes to120 {
+  to {
+    --num: 120;
+    font-size: 1em
+  }
+}
+@keyframes to3 {
+  to {
+    --num: 3;
+    font-size: 1.732em
+  }
+}
+@keyframes to65 {
+  to {
+    --num: 65;
+    font-size: .95em
+  }
+}
+@keyframes n30to35 {
+  to {
+    --num: 35;
+    font-size: .525em
+  }
+}
+@keyframes n40to60 {
+  to {
+    --num: 60;
+    font-size: .9em
+  }
+}
+@keyframes to50 {
+  to {
+    --num: 50;
+    font-size: .75em
+  }
+}
+@keyframes redToGreen {
+  0% {
+    color: #DC322F;
+    text-shadow: 0 0 -1em
+  }
+  to {
+    color: #859900;
+    text-shadow: 0 0 1em
+  }
+}
+@keyframes access {
+  to {
+    background-position: 50%
+  }
+}
+@keyframes versatile {
+  50% {
+    --num: 21
+  }
+  to {
+    --num: 264004410
+  }
+}
+@keyframes spreadOut {
+  50% {
+    transform: rotate(1deg)
+  }
+  to {
+    letter-spacing: 1ch;
+    transform: rotate(-1deg)
+  }
+}
+@keyframes heating {
+  37.5% {
+    color: inherit;
+    text-shadow: none
+  }
+}
+@keyframes increase {
+  to {
+    text-shadow: .1vh -.1vw 1em;
+    transform: scaleX(1.1) rotate(-9deg)
+  }
+}
+@keyframes shiver {
+  to {
+    color: #268BD2;
+    letter-spacing: -1vh;
+    opacity: .5;
+    text-shadow: 0 0 1em
+  }
+}
+@keyframes to300 {
+  to {
+    font-size: 1em;
+    --num: 300
+  }
+}
+@keyframes pressure {
+  to {
+    letter-spacing: -.2ch
+  }
+}
+@keyframes crash {
+  0% {
+    text-shadow: 1vw 0 1em #DC322F, 0 0 .1em
+  }
+  to {
+    transform: translate(-100%) rotate(225deg);
+    opacity: 0
+  }
+}
+@keyframes robust {
+  to {
+    text-shadow: 1ch 0 1em;
+    letter-spacing: -.1ch
+  }
+}
+@keyframes catchMe {
+  to {
+    transform: translate(100vw);
+  }
+}
+@keyframes upDown {
+  17%, 50% {
+    transform: translateY(67%);
+    text-shadow: 0 -1vh 1em
+  }
+  33%, 81% {
+    transform: translateY(0);
+    text-shadow: 0 0 1em
+  }
+  67%, to {
+    transform: translateY(-100%);
+    text-shadow: 0 1vh 1em
+  }
+}
+@keyframes to0 {
+  to {
+    --num: 6651600
+  }
+}
+@keyframes to0_2 {
+  to {
+    --num: 6651600
+  }
+}
+@keyframes stop {
+  to {
+    --num: 0
+  }
+}
+@keyframes stop2 {
+  to {
+    --num: 0
+  }
+}
+a:hover {
+  cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' style='background-color:transparent'><text dominant-baseline='hanging' font-size='larger' fill='%23268BD2' font-family='math' style='transform:rotateX(30deg)'>H</text></svg>"), pointer;
+  transform: rotateX(10deg)
+}
+a:active {
+  cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' style='background-color:transparent'><text dominant-baseline='hanging' font-size='larger' fill='%23268BD2' font-family='math' style='transform:rotateX(60deg)'>H</text></svg>"), pointer;
+  transform: rotateX(20deg)
+}
+[href$=".pptx"] {
+  display: block;
+  text-align: center;
+  font-family: rounded;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #FFFE;
+  background: radial-gradient(#C13B1BEE, #D35230EE, #ED6C47EE, #FF8F6BEE)
+}
+::selection {
+  background: #878B9180
+}
+html {
+  /*firefox scrollbar*/
+  scrollbar-width: 1vw;
+  scrollbar-color: #EEE8D5 #D33682;
+  caret-color: #D30102;
+  cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text dominant-baseline='hanging' font-size='larger' fill='%23268BD2' font-family='math'>H</text></svg>"), auto;
+  font-family: sans-serif;
+  scroll-behavior: smooth;
+  background: #FDF6E3;
+  color: #657B83
+}
+::-webkit-scrollbar {
+  width: 1ch
+}
+::-webkit-scrollbar-thumb {
+  background: radial-gradient(#FDF6E355, #D3368255);
+  border-radius: 100vh;
+  box-shadow: 0 9vh 1em #268BD2, 0 -9vh 1em #268BD2;
+  transition: background ease-out 1s
+}
+::-webkit-scrollbar-thumb:hover {
+  background: radial-gradient(#FDF6E3AA, #D33682AA)
+}
+@media(prefers-color-scheme:dark) {
+  html {
+    color: #839496;
+    background-color: #002B36
+  }
+  ::selection {
+    background-color: #2AA19899
+  }
+}
+s {
+  color: #b58900;
+  background: linear-gradient(to left top, transparent 47%, #CB4B16 48%, #CB4B16 50%, transparent 53%), linear-gradient(to left bottom, transparent 47%, #CB4B16 48%, #CB4B16 50%, transparent 53%)
+}
+sup {
+  font-family: math
+}
+h2,
+p {
+  text-align: center
+}
+#intro {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  opacity: 0%;
+  animation: 1s 1s forwards state
+}
+* {
+  border-radius: .3em
+}
+h1 {
+  font-family: fantasy;
+  box-shadow: -1vw 0 .1em #236C71, 1vw 0 .1em #236C71;
+  margin: 0 auto;
+  background-clip: text;
+  background: radial-gradient(#FDF6E3AA, #D33682AA);
+  animation: 1s ease-out infinite alternate header
+}
+h1:hover {
+  animation: .4s ease-in infinite alternate enlarge, 1s linear infinite alternate header
+}
+nav {
+  position: sticky;
+  text-align: center;
+  background-color: #0002;
+  top: 0
+}
+a:hover {
+  box-shadow: inset 0 0 1em
+}
+a:active {
+  box-shadow: 0 0 1em
+}
+a {
+  transition: box-shadow .1s;
+  color: #268BD2EE
+}
+section,
+.section {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+}
+header {
+  overflow: hidden;
+  font-size: 7.7vw;
+  margin: 0 auto;
+  text-align: center;
+  animation: 1s 2 alternate smog
+}
+section>*,
+.section>* {
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  margin: auto;
+  text-align: center;
+  box-shadow: inset 1vw 1vh 1em #0001;
+  flex: 1
+}
+section>* {
+  padding: 1vh 1vw
+}
+h1,
+h2,
+h3 {
+  color: #268BD2;
+  flex-basis: 100%;
+  flex: 2
+}
+h2 {
+  transition: background-color ease-out 1s;
+  flex-basis: 100%;
+  margin-bottom: -.5em;
+  box-shadow: 1vw 1vh 1em
+}
+#zero, .count, :has(+ .count), :has(+ .altcount), .num {
+  color: #D33682;
+  animation: 1s 3s
+}
+.count {
+  font-size: 0
+}
+@supports(background:paint(e))and (transition:content) {
+  [for=H]::before {
+    font-size: .4em;
+    pointer-events: none;
+    color: #D33682;
+    content: counter(hcount)
+  }
+  :has(+ .count, + .altcount, + #hoverOrCheck):not(.count), .hide {
+    position: absolute;
+    left: -100%
+  }
+}
+.count {
+  animation-fill-mode: forwards;
+  font-size: 0
+}
+#zero {
+  animation-name: shrinkAway
+}
+#vsCnH2n {
+  animation-name: to3;
+  visibility: hidden;
+  counter-reset: to3 var(--num);
+}
+#vsCnH2n::after {
+  visibility: visible;
+  content: counter(to3)
+}
+#energyDensity {
+  animation-name: to120;
+  counter-reset: to120 var(--num)
+}
+#energyDensity::after {
+  content: counter(to120)
+}
+.altcount {
+  color: #D33682;
+  animation: 2s 3s infinite alternate
+}
+#efficiencyH {
+  animation-name: to65;
+  font-size: 0;
+  counter-reset: to65 var(--num)
+}
+#efficiencyH::after {
+  content: counter(to65)
+}
+#efficiencyConventional {
+  animation-name: n30to35;
+  --num: 30;
+  font-size: .45em;
+  counter-reset: n30to35 var(--num)
+}
+#efficiencyConventional::after {
+  content: counter(n30to35)
+}
+#fuelusage {
+  animation-name: n40to60;
+  --num: 40;
+  font-size: .6em;
+  counter-reset: n40to60 var(--num)
+}
+#fuelusage::after {
+  content: counter(n40to60)
+}
+#consumptionReduced {
+  animation-name: to50;
+  font-size: 0;
+  counter-reset: to50 var(--num)
+}
+#consumptionReduced::after {
+  content: counter(to50)
+}
+#range {
+  animation-name: to300;
+  font-size: 0;
+  counter-reset: to300 var(--num);
+}
+#range::after {
+  content: counter(to300)
+}
+#clean {
+  color: #0065AC;
+  text-shadow: 0 0 1em #9b7653;
+  animation: 2s 3s forwards ease-out clean
+}
+#access {
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='3.7ch'><text font-size='x-large' dominant-baseline='hanging'>🫴</text></svg>"), #268BD255;
+  text-shadow: 0 0;
+  mix-blend-mode: exclusion;
+  background-clip: border-box
+}
+#versatile {
+  animation: 20s 3s ease-in-out infinite alternate versatile;
+  /*```rs
+  (0..)
+    .zip("versat".chars().rev())
+    .fold(0, |a, (i, c)| a + ((c as u32) - 96) * 26u32.pow(i))
+```*/
+  --num: 264004410;
+  counter-reset: num var(--num)
+}
+.heat {
+  color: #CB4B16;
+  text-shadow: 0 0 1em
+}
+#heating {
+  animation: 24s 3s linear infinite heating
+}
+.condense {
+  font-stretch: ultra-condensed
+}
+#chargeH {
+  animation: 1s 3s linear both redToGreen
+}
+#chargeElectric {
+  animation: 54s 3s linear both redToGreen
+}
+b {
+  font-weight: 900
+}
+#depend {
+  transform: rotate(5deg);
+  display: inline-block
+}
+.large {
+  font-size: larger
+}
+#increase {
+	display: inline-block;
+  animation: 60s ease-in forwards increase
+}
+#extend {
+  letter-spacing: .1vw
+}
+#transport {
+  text-shadow: .1ch 0 .1em
+}
+.platinum {
+  text-shadow: 0 0 .1em #E5E4E2
+}
+.green {
+  color: #859900
+}
+#shiver {
+  display: inline-block;
+  width: 16ch;
+  animation: 5s 3s shiver
+}
+#pic::before {
+  content: "🖼️";
+  opacity: 0;
+  transform: translate(1.5em);
+  animation: 1s linear infinite alternate resetX, 1s linear infinite fadeIn
+}
+#team::after {
+  content: "🤔🤔🤔";
+  font-stretch: ultra-condensed;
+  animation: 30s linear infinite team
+}
+#coder::after {
+  content: "🍚";
+  animation: 5s linear infinite coder
+}
+:has(>:target) {
+  box-shadow: 0 0 1em
+}
+:has(>#H) {
+  background-color: #000800;
+  transition: background-color 60s ease-out;
+}
+[for=H] {
+  color: #236C71;
+  transform: translateY(100%);
+  transition: animation 10s;
+  -webkit-user-select: none;
+  font-size: 2em;
+  display: inline-block
+}
+[for=H]::before {
+  font-size: .5em;
+  color: #D33682;
+  background-color: #F002;
+  transition: background-color 1490298ms ease-out;
+  content: counter(hcount)
+}
+@media(hover: none) {
+  [href="#game"] {
+    display: none
+  }
+  [for=H] {
+    --num: 0;
+    animation: 5s infinite ease-in catchMe, 1490298ms linear to0;
+    counter-reset: hcount var(--num)
+  }
+  :has(>#H) {
+    background-color: #0000;
+    animation: 1490298ms ease-in smog
+  }
+  :has(>:checked + [for=H]) {
+    animation: 1490298ms ease-in smog
+  }
+  :checked+[for=H] {
+    animation: 5s infinite reverse ease-in catchMe, 1490298ms linear to0_2
+  }
+  #hoverOrCheck::before {
+    content: "tap on"
+  }
+}
+@media not (hover: none) {
+  [for=H] {
+    transition: --num 1490298ms ease-in;
+    --num: 6651600;
+    animation: 4s infinite alternate upDown;
+    counter-reset: hcount var(--num)
+  }
+  [for=H]:hover {
+    animation: 9s infinite alternate upDown, 60s infinite ease-in catchMe;
+    --num: 0
+  }
+  :has(>[for=H]:hover) {
+    background-color: #0000;
+  }
+  #hoverOrCheck::before {
+    content: "hover your cursor over"
+  }
+}
+#H {
+  display: none
+}
+@media (prefers-reduced-motion:no-preference) {
+	#renew {
+	  animation: 3s 3s ease-out infinite alternate renew;
+	}
+  #train {
+    animation: 2s 1 forwards petrolslide
+  }
+  #trains {
+    opacity: 0;
+    animation: 1s 1s forwards appear, 2s linear 1s infinite hslide
+  }
+  #pic::after {
+    content: "🖌️";
+    display: inline-block;
+    transform: translate(-.4em);
+    animation: .1s linear infinite alternate swish, 1s linear infinite alternate across-pic
+  }
+  .water {
+    display: inline-block;
+    text-decoration: #D4F1F9 wavy underline overline;
+    transform: translate(-.1vh, -.1vh) rotate(-1deg);
+    animation: 2s 3s linear infinite alternate wobble
+  }
+  #flex {
+    animation: 3s 3s infinite alternate spreadOut;
+    display: inline-block
+  }
+  #pressure {
+    width: 11ch;
+    letter-spacing: -.1ch;
+    display: inline-block;
+    animation: .1s 3s ease-in infinite alternate pressure
+  }
+  header {
+    animation: 1s 2 alternate smog, .5s 3s 1 forwards shrink
+  }
+  #powerful {
+    text-shadow: -1vw 0 1em;
+    animation: 1ms ease-in infinite alternate shadow
+  }
+  #robust::after {
+    content: "🚀";
+    display: inline-block;
+    transform: translate(100%) rotate(225deg);
+    animation: 8s 3s ease-in infinite forwards crash
+  }
+  #robust {
+    animation: 4s 3s ease-out infinite alternate robust
+  }
+}
+</style>
+<nav class=section>
+  <a href=#why accesskey=w>Why?</a><a href=#plan>Plan</a><a href=#team>Team</a><a href=#game>Game</a>
+</nav>
+<header>
+  <div id=intro>
+    <h1><sup>47.9</sup>TiB<sup>1</sup>H<s><sup>32.1</sup>S</s></h1> Hydrogen fuel cells favoured over futile fossil fuels
+  </div>
+  <div id=train>🚅</div>
+  <div id=trains class=section>
+    <div>🚅</div>
+    <div>🚅</div>
+    <div>🚅</div>
+  </div>
+  <small><b>Ti</b>tanium catalyses electrolysis to <b>b</b>ring <b>H</b>ydrogen <b>s</b>tuff, <b>S</b>ulfur compounds avoided through less fossil fuel burning, theorised at Tauheedul Islam Boys' High School</small>
+</header>
+<a href=design.pptx accesskey=p>See our powerpoint</a>
+<section>
+  <h2 id=why>Why Hydrogen❓</h2>
+  <div>
+    <h3 id=renew>Renewable🔀</h3>Most abundant element in the universe<br>Helps to support <span id=zero>0</span> carbon
+  </div>
+  <div>
+    <h3 id=clean>Clean✨</h3>Produces only <span class=heat>heat</span> <wbr>and astronauts' drinking <span class=water>water</span> in rockets!
+  </div>
+  <div>
+    <h3 id=powerful>Powerful</h3><span>3</span><span class=count id=vsCnH2n></span> times the gravimetric energy density of diesel, under <span id=pressure>high pressures</span>:<br><span>120</span><span class=count id=energyDensity></span>MJ∕kg
+  </div>
+  <div>
+    <h3 class=condense>Efficient</h3>Generated at <span>65</span></span><span id=efficiencyH class=count></span>% efficiency vs. <span>30 to 35</span><span id=efficiencyConventional class=altcount></span>% conventional.<br> <span>40 to 60</span><span id=fuelusage class=altcount></span>% efficiency in vehicles<br>Reduces consumption by <span>50</span><span id=consumptionReduced class=count></span>%
+  </div>
+  <div>
+    <h3 id=chargeH>&lt5-minute vehicle charge</h3>vs. &gt30 minutes on <span id=chargeElectric> electric vehicles</span><br>∴<span id=flex> flexibility</span>
+  </div>
+  <div>
+    <h3>🔇Quiet</h3>unlike wind power, internal <span class=heat>combustion</span> engines
+  </div>
+  <div>
+    <h3>No eyesore 😌</h3>unlike wind and <span class=green>biofuel</span>
+  </div>
+  <div>
+    <h3 id=robust>❄️Robust🔥</h3><span>300</span><span id=range class=count></span>-mile range<br>∵Used to range-<span id=extend>extend</span> electric vehicles<br>Not impacted by temperature unlike <span id=shiver>cold-intolerant EVs</span>
+  </div>
+  <div>
+    <h3 id=access>Accessible</h3>Can be stored or generated anywhere<br>No need for <span id=transport>transportation
+  </div>
+  <div>
+    <h3 id=versatile>Versatile</h3>e.g 🚗<br>🏡 products<br><span class=large>Large</span>-<small>scale</small> <span id=heating class=heat>heating systems</span><br>More flexible than <b>mass</b>-<sub id=depend>dependent</sub> batteries
+  </div>
+  <div>
+    <h3>Fair⚖️</h3>No more countries depending on <span id=increase>increasingly</span> expensive 💰 fossil fuels
+  </div>
+</section>
+<section>
+  <h2 id=plan>Plan 📋</h2>
+  <p>🔎 Research water electrolysis to attempt to reduce the costs<br>If ineffective, research other methods
+  <p>Research safe 🗄️storage & 🚅transportation methods
+  <p>👍Encourage governments to embrace 🤗 and invest 💰 in hydrogen fuel cells
+  <p id=findMines>Research electrolysis catalysts cheaper than <span class=platinum>platinum</span> & <span class=platinum>iridium</span>, e.g. Mo<sub>3</sub>P
+  <p>🤝Work with world leaders on regulations for companies
+</section>
+<section>
+  <h2 id=team>Our team</h2>
+  <div>
+    <h3 id=coder><a href=discord://-/users/828677761303838781>Umar</a></h3><i>Website creator, obsessive <a href=//replit.com/@UMARismyname>coder</a>, <a href=//ask.replit.com/u/umarismyname>code helper</a></i>
+  </div>
+  <div>
+    <h3>Faaris87<span id=pic></h3><i>Hydrogen model designer, astonishing engineer</i>
+  </div>
+  <div>
+    <h3>Ink1e</h3><i>Coder, leaflet designer, weeb</i>
+  </div>
+  <div>
+    <h3>Mubzini</h3><i>Coder, hard worker</i>
+  </div>
+</section>
+<div id=desktopOnly>
+  <small>WIP. Don't worry, we're making hydrogen much more accessible than this little game</small>
+  <h2 id=game>Loyally <span>hover your cursor or tap on</span><span id=hoverOrCheck> the H to make 1 car hydrogen-fuelled every millisecond, to keep down the pollution</h2>
+  <input type=checkbox id=H><label for=H>H</label>
+  <p><small>In metric tons, ignoring the pollution caused by hydrogen car/fuel cell production</small></p>
+</div>
+<footer><small>Fake project for <a href=//www.first-lego-league.org/en/2022-23-season/the-superpowered-season>FLL SUPERPOWERED

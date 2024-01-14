@@ -1,0 +1,12 @@
+{
+"html": {
+  "indent_size": 2,
+  "indent_scripts": "keep",
+  "preserve_newlines": false,
+  "css": {
+    "indent_level": 0,
+    "selector_separator_newline": false,
+    "newline_between_rules": false
+  }
+}
+}
